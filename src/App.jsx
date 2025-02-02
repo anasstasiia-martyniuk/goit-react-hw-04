@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import SearchBar from './components/SearchBar/Searchbar';
+import SearchBar from './components/SearchBar/SearchBar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import ImageCard from './components/ImageCard/ImageCard';
 import CustomLoader from './components/Loader/Loader';
