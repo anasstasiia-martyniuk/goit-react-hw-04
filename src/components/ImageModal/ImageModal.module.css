@@ -1,0 +1,12 @@
+.imgM{
+    display: block;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.close{ 
+    position: absolute;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 24px;
+}

@@ -1,0 +1,12 @@
+.card{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    border-radius: 32px;
+    height: 240px;
+}
+.cardimg{
+    height: 100%;
+}

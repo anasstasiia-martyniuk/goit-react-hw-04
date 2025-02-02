@@ -1,0 +1,8 @@
+.gal {
+    display: grid;
+    padding: 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
+    list-style: none;
+}
