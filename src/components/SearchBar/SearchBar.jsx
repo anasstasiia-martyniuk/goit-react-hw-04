@@ -3,7 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import css from "./SearchBar.module.css"
 
-export default function SearchBa({ onSubmit }) {
+export default function SearchBar({ onSubmit }) {
     const [query, setQuery] = useState('');
 
     const handleSubmit = async (e) => {
