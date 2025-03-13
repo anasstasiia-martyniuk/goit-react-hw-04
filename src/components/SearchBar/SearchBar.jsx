@@ -4,41 +4,28 @@ import { toast } from 'react-hot-toast';
 import css from "./SearchBar.module.css"
 
 export default function SearchBar({ onSubmit }) {
-    const [query, setQuery] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (query.trim() === '') {
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        const form = evt.target;
+        const topic = form.elements.topic.value.trim();
+        if (topic === '') {
             toast.error('Please enter a search term');
             return;
         }
-
-        try {
-            const response = await axios.get(`https://api.unsplash.com/search/photos`, {
-                params: {
-                    query,
-                    client_id: '1D37ZDRQZeZP3C2WPuc407dk3IPd5_MACV_uW0xCiKE',
-                    page: 1,
-                },
-            });
-
-            onSubmit(response.data.results, query);
-            setQuery('');
-        } catch (error) {
-            toast.error('Failed to fetch images. Please try again later.');
-        }
+        onSubmit(topic);
+        form.reset();
     };
 
     return (
         <header className={css.header}>
             <form className={css.w} onSubmit={handleSubmit}>
                 <input
+                    name="topic"
                     type="text"
                     autoComplete="off"
                     autoFocus
                     placeholder="Search images and photos"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
                     className={css.q}
                 />
                 <button type="submit" className={css.search}>Search</button>

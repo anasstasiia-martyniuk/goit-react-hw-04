@@ -1,8 +1,12 @@
 import css from "./ImageCard.module.css"
-export default function ImageCard({ imageUrl, alt, onImageClick }) {
+export default function ImageCard({ image, onClick }) {
     return (
-        <div onClick={onImageClick} className={css.card}>
-            <img className={css.cardimg} src={imageUrl} alt={alt} />
+        <div className={css.card}>
+            <img 
+            className={css.cardimg} 
+            src={image.urls.small} 
+            alt={image.alt_description || "No description"}
+            onClick={() => onClick(image)} />
         </div>
     );
 }

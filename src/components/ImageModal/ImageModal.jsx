@@ -1,9 +1,12 @@
-import ReactModal from "react-modal";
+import Modal from "react-modal";
 import css from "./ImageModal.module.css"
 
-export default function ImageModal ({ isOpen, onRequestClose, imageUrl, alt }) {
+export default function ImageModal ({ modalIsOpen, selectedImage, modalIsClosed }) {
+
+  if(!selectedImage) return null;
+
   return (
-    <ReactModal
+    <Modal
     style={{
       overlay: {
         position: 'fixed',
@@ -28,12 +31,12 @@ export default function ImageModal ({ isOpen, onRequestClose, imageUrl, alt }) {
         padding: '20px'
       }
     }}
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
+      isOpen={modalIsOpen}
+      onRequestClose={modalIsClosed}
       contentLabel="Image Modal"
     >
-      <button onClick={onRequestClose} className={css.close}>Close</button>
-      <img src={imageUrl} alt={alt} className={css.imgM}/>
-    </ReactModal>
+      <button onClick={modalIsClosed} className={css.close}>Close</button>
+      <img src={selectedImage.urls.regular} alt={selectedImage.alt_description} className={css.imgM}/>
+    </Modal>
   );
 }
